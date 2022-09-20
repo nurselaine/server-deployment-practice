@@ -17,12 +17,10 @@ app.get('/', (req, res, next) => {
 })
 
 app.get('/bad', (req, res, next) =>{
-    res.status(500).send(errorHandler);
+    res.status(500).send('this is a bad route');
 })
-
-app.use(errorHandler);
-
 app.use('*', notFound);
+app.use(errorHandler);
 
 function start(){
     app.listen(PORT, () => console.log(`listening on port ${PORT}`));
