@@ -16,6 +16,7 @@ describe('API Server', () => {
         const response = await request.get('/bad');
         expect(response.status).toEqual(500);
         expect(response.body.route).toEqual('/bad');
+        expect(response.body.message).toEqual('this is a bad route');
     });
 
     it('handles root path', async () => {

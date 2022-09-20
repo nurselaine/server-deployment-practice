@@ -17,9 +17,10 @@ app.get('/', (req, res, next) => {
 })
 
 app.get('/bad', (req, res, next) =>{
-    res.status(500).send('this is a bad route');
+    next('this is a bad route');
 })
 app.use('*', notFound);
+
 app.use(errorHandler);
 
 function start(){
